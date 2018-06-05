@@ -122,12 +122,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\Controllers.cs" />
+    <Compile Include="Controllers\MongoDBController.cs" />
+    <Compile Include="Controllers\PeopleController.cs" />
+    <Compile Include="Controllers\TripsController.cs" />
     <Compile Include="DataSource\DemoDataSources.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\sameStructure.cs" />
+    <Compile Include="Models\MongoDB.cs" />
     <Compile Include="Models\Zip.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Trip.cs" />

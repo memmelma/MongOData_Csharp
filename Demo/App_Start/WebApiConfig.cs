@@ -2,6 +2,7 @@
 using Microsoft.OData.Edm;
 using MongoDB.Bson;
 using MongoDB.Bson.IO;
+using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace Demo
 {
     public static class WebApiConfig
     {
-        public static async void Register(HttpConfiguration config)
+        public static void Register(HttpConfiguration config)
         {
             config.MapODataServiceRoute("odata", null, GetEdmModel(), new DefaultODataBatchHandler(GlobalConfiguration.DefaultServer));
 
@@ -31,8 +32,8 @@ namespace Demo
             builder.ContainerName = "DefaultContainer";
             builder.EntitySet<Person>("People");
             builder.EntitySet<Trip>("Trips");
-            builder.EntitySet<sameStructure>("sameStructures");
-            //builder.EntitySet<sameStructure>("sameStructures").EntityType.HasKey(entity => entity.a);
+            builder.EntitySet<Models.MongoDB>("MongoDB");
+
             var edmModel = builder.GetEdmModel();
             return edmModel;
         }
