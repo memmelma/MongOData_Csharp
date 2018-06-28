@@ -1,0 +1,26 @@
+public IMongoQueryable<Models.MongoDB> Get(ODataQueryOptions opts)
+        {
+            var client = new MongoClient("mongodb://localhost:32768/");
+
+            var database = client.GetDatabase("PIM_db");
+
+            var collection = database.GetCollection<Models.MongoDB>("product_data");// AsQueryable<Zip>();
+
+            //var x = opts.ApplyTo(collection.AsQueryable(), new ODataQuerySettings());
+            //System.Diagnostics.Debug.WriteLine(x);
+
+            //var jsonWriterSettings = new JsonWriterSettings { OutputMode = JsonOutputMode.Strict }; // key part
+
+
+            //return Ok(collection.AsQueryable().Where(new BsonDocument()));
+
+            //-->opts.ApplyTo(collection.AsQueryable());
+
+            //validate queryopts -> validator!
+
+            var x = collection.AsQueryable();
+
+
+            return collection.AsQueryable();
+            //return x;
+        }

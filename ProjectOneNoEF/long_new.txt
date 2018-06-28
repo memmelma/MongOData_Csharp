@@ -1,0 +1,40 @@
+public async Task<IHttpActionResult> Get(ODataQueryOptions opts)
+        {
+
+            var client = new MongoClient("mongodb://localhost:32768/");
+            
+            var database = client.GetDatabase("PIM_db");
+            
+            var collection = database.GetCollection<BsonDocument>("product_data");// AsQueryable<Zip>();
+
+            //var x = opts.ApplyTo(collection.AsQueryable(), new ODataQuerySettings());
+            //System.Diagnostics.Debug.WriteLine(x);
+
+            var jsonWriterSettings = new JsonWriterSettings { OutputMode = JsonOutputMode.Strict }; // key part
+
+
+            var filter = new BsonDocument();
+            var allDocuments = new List<Models.MongoDB>();
+            //var allDocuments = new List<String>();
+
+            using (var cursor = await collection.Find(filter).ToCursorAsync())
+            {
+                while (await cursor.MoveNextAsync())
+                {
+                    foreach (var document in cursor.Current)
+                    {
+                        var ser = BsonSerializer.Deserialize<Models.MongoDB>(document);
+                        //var ser = BsonSerializer.Deserialize<Models.MongoDB>(document).ToJson(jsonWriterSettings);
+                        //Models.MongoDB obj = Newtonsoft.Json.JsonConvert.DeserializeObject<Models.MongoDB>(ser.ToJson(jsonWriterSettings));
+                        allDocuments.Add(ser);
+
+                        //System.Diagnostics.Debug.WriteLine(ser.ToJson(jsonWriterSettings));
+
+                    }
+                }
+            }
+
+            //return Ok(collection.AsQueryable().Where(new BsonDocument()));
+            return Ok(allDocuments.AsQueryable());
+        }
+    }
