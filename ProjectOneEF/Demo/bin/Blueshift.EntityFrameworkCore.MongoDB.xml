@@ -1,0 +1,1819 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Blueshift.EntityFrameworkCore.MongoDB</name>
+    </assembly>
+    <members>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Conventions.AbstractClassConvention">
+            <summary>
+            A convention that specifies that a discriminator is required when the given type is abstract.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Conventions.AbstractClassConvention.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Conventions.AbstractClassConvention" /> class.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Conventions.AbstractClassConvention.Apply(MongoDB.Bson.Serialization.BsonClassMap)">
+            <summary>
+            Applies the Abstract Class convention to the given <paramref name="classMap"/>.
+            </summary>
+            <param name="classMap">The <see cref="T:MongoDB.Bson.Serialization.BsonClassMap" /> to which the convention will be applied.</param>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Conventions.BsonMemberMapAttributeConvention`1">
+            <summary>
+            Base class for attribute-based <see cref="T:MongoDB.Bson.Serialization.BsonMemberMap"/> convention processing.
+            </summary>
+            <typeparam name="TAttribute">The type of attribute to process.</typeparam>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Conventions.BsonMemberMapAttributeConvention`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Conventions.BsonMemberMapAttributeConvention`1"/>.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Conventions.BsonMemberMapAttributeConvention`1.Apply(MongoDB.Bson.Serialization.BsonMemberMap)">
+            <summary>
+            Processes each <typeparamref name="TAttribute"/> defined on the given <paramref name="memberMap"/>
+            member info and 
+            </summary>
+            <param name="memberMap">The <see cref="T:MongoDB.Bson.Serialization.BsonMemberMap"/> to </param>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Conventions.BsonMemberMapAttributeConvention`1.Apply(MongoDB.Bson.Serialization.BsonMemberMap,`0)">
+            <summary>
+            Process the conventions on <paramref name="memberMap"/> according to the given <paramref name="attribute"/>.
+            </summary>
+            <param name="memberMap">The <see cref="T:MongoDB.Bson.Serialization.BsonMemberMap"/> to which the conventions will be assigned.</param>
+            <param name="attribute">The <typeparamref name="TAttribute" /> that defines the convention.</param>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Conventions.IgnoreEmptyEnumerablesConvention">
+            <summary>
+            A convention that ignores empty <see cref="T:System.Collections.IEnumerable"/> instances when serializing Bson documents. 
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Conventions.IgnoreEmptyEnumerablesConvention.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Conventions.IgnoreEmptyEnumerablesConvention"/> class.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Conventions.IgnoreEmptyEnumerablesConvention.Apply(MongoDB.Bson.Serialization.BsonMemberMap)">
+            <summary>
+            Applies the Ignore Empty Enumerables convention to the given <paramref name="memberMap"/>.
+            </summary>
+            <param name="memberMap">The <see cref="T:MongoDB.Bson.Serialization.BsonMemberMap" /> to which the convention will be applied.</param>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Conventions.IgnoreNullOrEmptyStringsConvention">
+            <summary>
+            Instructs the MongoDb C# driver to ignore null, empty, or default values of <see cref="T:System.String"/> properties.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Conventions.IgnoreNullOrEmptyStringsConvention.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Conventions.IgnoreNullOrEmptyStringsConvention"/> class.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Conventions.IgnoreNullOrEmptyStringsConvention.Apply(MongoDB.Bson.Serialization.BsonMemberMap)">
+            <summary>
+            Applies the Ignore Null or Empty Strings convention to the given <paramref name="memberMap"/>.
+            </summary>
+            <param name="memberMap">The <see cref="T:MongoDB.Bson.Serialization.BsonMemberMap" /> to which the convention will be applied.</param>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Conventions.KeyAttributeConvention">
+            <summary>
+            A convention that sets the <see cref="P:MongoDB.Bson.Serialization.BsonClassMap.IdMemberMap"/> of a <see cref="T:MongoDB.Bson.Serialization.BsonClassMap"/>
+            if that property has been decorated with a <see cref="T:System.ComponentModel.DataAnnotations.KeyAttribute"/>.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Conventions.KeyAttributeConvention.Apply(MongoDB.Bson.Serialization.BsonMemberMap,System.ComponentModel.DataAnnotations.KeyAttribute)">
+            <summary>
+            Applies the Key Attribute convention to the given <paramref name="memberMap"/>.
+            </summary>
+            <param name="memberMap">The <see cref="T:MongoDB.Bson.Serialization.BsonMemberMap" /> to which the convention will be applied.</param>
+            <param name="attribute">The <see cref="T:System.ComponentModel.DataAnnotations.KeyAttribute"/> to apply.</param>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Conventions.NavigationMemberMapConvention">
+            <summary>
+            A convention for specifying how to serialize navigation properties.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Conventions.NavigationMemberMapConvention.Apply(MongoDB.Bson.Serialization.BsonMemberMap)">
+            <inheritdoc />
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Conventions.NotMappedAttributeConvention">
+            <summary>
+            Marks a <see cref="T:MongoDB.Bson.Serialization.BsonMemberMap"/> as ignored during serialization.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Conventions.NotMappedAttributeConvention.Apply(MongoDB.Bson.Serialization.BsonMemberMap,System.ComponentModel.DataAnnotations.Schema.NotMappedAttribute)">
+            <summary>
+            Applies the Not Mapped convention to the given <paramref name="memberMap"/>.
+            </summary>
+            <param name="memberMap">The <see cref="T:MongoDB.Bson.Serialization.BsonMemberMap" /> to which the convention will be applied.</param>
+            <param name="attribute">The <see cref="T:System.ComponentModel.DataAnnotations.Schema.NotMappedAttribute"/> to apply.</param>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Adapter.EntityFrameworkConventionPack">
+            <summary>
+            Provides a set of conventions that configures the MongoDb C# Driver to work appropriately with the EntityFrameworkCore.
+            </summary>
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Adapter.EntityFrameworkConventionPack.Instance">
+            <summary>
+            The singleton instance of <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Adapter.EntityFrameworkConventionPack"/>.
+            </summary>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Serialization.NavigationBsonSerializer`1">
+            <summary>
+            A serializer for writing navigation properties used by MongoDB.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Serialization.NavigationBsonSerializer`1.#ctor(System.Collections.Generic.IEnumerable{MongoDB.Bson.Serialization.BsonMemberMap})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Serialization.NavigationBsonSerializer`1"/> class.
+            </summary>
+            <param name="denormalizedMemberMaps">Optional. An <see cref="T:System.Collections.Generic.IEnumerable`1"/> of <see cref="T:MongoDB.Bson.Serialization.BsonMemberMap"/> referencing the properties
+            to be denormalized by this serializer.</param>
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Serialization.NavigationBsonSerializer`1.DenormalizedMemberMaps">
+            <summary>
+            Gets the <see cref="T:System.Collections.Generic.IEnumerable`1"/> of <see cref="T:MongoDB.Bson.Serialization.BsonMemberMap"/> that this serializer is configured to denormalize.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Serialization.NavigationBsonSerializer`1.Deserialize(MongoDB.Bson.Serialization.BsonDeserializationContext,MongoDB.Bson.Serialization.BsonDeserializationArgs)">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Adapter.Serialization.NavigationBsonSerializer`1.Serialize(MongoDB.Bson.Serialization.BsonSerializationContext,MongoDB.Bson.Serialization.BsonSerializationArgs,`0)">
+            <inheritdoc />
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Annotations.DenormalizeAttribute">
+            <summary>
+            Declares that a member of a navigation property should be denormalized when serializing the property.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Annotations.DenormalizeAttribute.#ctor(System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Annotations.DenormalizeAttribute"/> class.
+            </summary>
+            <param name="memberNames">The names of sub-document members to denormalize when serializing the parent document.</param>
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Annotations.DenormalizeAttribute.MemberNames">
+            <summary>
+            The name of the member to denormalize.
+            </summary>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Annotations.MongoCollectionAttribute">
+            <summary>
+            When applied to an entity class, sets the name of MongoDB collection name used to store instances of the entity.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Annotations.MongoCollectionAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Annotations.MongoCollectionAttribute"/> class.
+            </summary>
+            <param name="collectionName">The MongoDb database name to use with the <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Internal.Model"/>.</param>
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Annotations.MongoCollectionAttribute.CollectionName">
+            <summary>
+            The MongoDb database name to use with the <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Internal.Model"/>.
+            </summary>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Annotations.MongoDatabaseAttribute">
+            <summary>
+            When applied to a <see cref="T:Microsoft.EntityFrameworkCore.DbContext"/>, sets the database name to use with the context's <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Internal.Model"/>.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Annotations.MongoDatabaseAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Annotations.MongoDatabaseAttribute"/> class.
+            </summary>
+            <param name="database">The MongoDb database name to use with the <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Internal.Model"/>.</param>
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Annotations.MongoDatabaseAttribute.Database">
+            <summary>
+            The MongoDb database name to use with the <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Internal.Model"/>.
+            </summary>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.ChangeTracking.MongoDbInternalEntityEntryFactory">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.ChangeTracking.MongoDbInternalEntityEntryFactory.Create(Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IStateManager,Microsoft.EntityFrameworkCore.Metadata.IEntityType,System.Object,Microsoft.EntityFrameworkCore.Storage.ValueBuffer@)">
+            <inheritdoc />
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Infrastructure.EntityFrameworkMongoDbServicesBuilder">
+            <summary>
+                A builder API that populates an <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> with a set of EntityFrameworkCore
+                provider dependencies for MongoDb.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Infrastructure.EntityFrameworkMongoDbServicesBuilder.#ctor(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Infrastructure.EntityFrameworkMongoDbServicesBuilder"/> class.
+            </summary>
+            <param name="serviceCollection">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> instance to populate.</param>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Infrastructure.EntityFrameworkMongoDbServicesBuilder.GetServiceCharacteristics(System.Type)">
+            <summary>
+            This API supports the Entity Framework Core infrastructure and is not intended to be used directly from your code.
+            This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Infrastructure.EntityFrameworkMongoDbServicesBuilder.TryAddCoreServices">
+            <summary>
+            Registers default implementations of all services not already registered by the provider. Database providers must call
+            this method as the last step of service registration--that is, after all provider services have been registered.
+            </summary>
+            <returns>This builder, such that further calls can be chained.</returns>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Infrastructure.MongoDbModelValidator">
+            <summary>
+                A validator that enforces rules for all MongoDb provider.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Infrastructure.MongoDbModelValidator.#ctor(Microsoft.EntityFrameworkCore.Infrastructure.ModelValidatorDependencies)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Infrastructure.MongoDbModelValidator"/> class.
+            </summary>
+            <param name="modelValidatorDependencies">Parameter object containing dependencies for this service.</param>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Infrastructure.MongoDbModelValidator.Validate(Microsoft.EntityFrameworkCore.Metadata.IModel)">
+            <summary>
+                Validates a model, throwing an exception if any errors are found.
+            </summary>
+            <param name="model">The <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Internal.Model"/> to validate.</param>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Infrastructure.MongoDbModelValidator.EnsureDistinctCollectionNames(Microsoft.EntityFrameworkCore.Metadata.IModel)">
+            <summary>
+            Ensures that each <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Internal.EntityType"/> in the given <paramref name="model"/> has a unique collection name.
+            </summary>
+            <param name="model">The <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Internal.Model"/> to validate.</param>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Infrastructure.MongoDbModelValidator.EnsureKnownTypes(Microsoft.EntityFrameworkCore.Metadata.IModel)">
+            <summary>
+            Ensures that derived entity types declared in <see cref="T:MongoDB.Bson.Serialization.Attributes.BsonKnownTypesAttribute"/> are registered for each
+            <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Internal.EntityType"/> in the given <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Internal.Model"/>.
+            </summary>
+            <param name="model">The <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Internal.Model"/> to be ensured.</param>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Infrastructure.MongoDbModelValidator.ValidateDerivedTypes(Microsoft.EntityFrameworkCore.Metadata.IModel)">
+            <summary>
+            Ensures that all entities in the given <paramref name="model"/> have unique discriminators.
+            </summary>
+            <param name="model">The <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Internal.Model"/> to validate.</param>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Builders.MongoDbConventionSetBuilder">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Builders.MongoDbConventionSetBuilder.#ctor(Blueshift.EntityFrameworkCore.MongoDB.Metadata.Builders.MongoDbConventionSetBuilderDependencies)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Builders.MongoDbConventionSetBuilder" /> class.
+            </summary>
+            <param name="mongoDbConventionSetBuilderDependencies">Parameter object containing dependencies for this service.</param>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Builders.MongoDbConventionSetBuilder.AddConventions(Microsoft.EntityFrameworkCore.Metadata.Conventions.ConventionSet)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Builders.MongoDbConventionSetBuilderDependencies">
+            <summary>
+                <para>
+                    Service dependencies parameter class for <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Builders.MongoDbConventionSetBuilder" />
+                </para>
+                <para>
+                    This API supports the Entity Framework Core infrastructure and is not intended to be used
+                    directly from your code. This API may change or be removed in future releases.
+                </para>
+                <para>
+                    Do not construct instances of this class directly from either provider or application code as the
+                    constructor signature may change as new dependencies are added. Instead, use this type in 
+                    your constructor so that an instance will be created and injected automatically by the 
+                    dependency injection container. To create an instance with some dependent services replaced, 
+                    first resolve the object from the dependency injection container, then replace selected 
+                    services using the 'With...' methods. Do not call the constructor at any point in this process.
+                </para>
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Builders.MongoDbConventionSetBuilderDependencies.#ctor(Microsoft.EntityFrameworkCore.Internal.ICurrentDbContext,Blueshift.EntityFrameworkCore.MongoDB.Storage.IMongoDbTypeMappingSource)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Builders.MongoDbConventionSetBuilderDependencies"/> class.
+            </summary>
+            <param name="currentDbContext">Indirection to the current <see cref="T:Microsoft.EntityFrameworkCore.DbContext" /> instance.</param>
+            <param name="mongoDbTypeMappingSource">Maps .NET types to their corresponding database provider types.</param>
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Builders.MongoDbConventionSetBuilderDependencies.CurrentDbContext">
+            <summary>
+                Indirection to the current <see cref="T:Microsoft.EntityFrameworkCore.DbContext" /> instance.
+            </summary>
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Builders.MongoDbConventionSetBuilderDependencies.MongoDbTypeMapperSource">
+            <summary>
+            Maps .NET types to their corresponding database provider types.
+            </summary>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Builders.MongoDbEntityTypeBuilderExtensions">
+            <summary>
+                Provides a set of MongoDB-specific extension methods for <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder"/>.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Builders.MongoDbEntityTypeBuilderExtensions.ForMongoDbFromCollection(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder,System.String)">
+            <summary>
+                Sets the name of the MongoDB collection used to store the <see cref="T:Microsoft.EntityFrameworkCore.Metadata.IEntityType"/> being built.
+            </summary>
+            <param name="entityTypeBuilder">The <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder"/> to annotate.</param>
+            <param name="collectionName">The name of the MongoDB collection.</param>
+            <returns>The <paramref name="entityTypeBuilder"/>, such that calls be chained.</returns>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Builders.MongoDbEntityTypeBuilderExtensions.ForMongoDbHasDiscriminator(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder,System.String)">
+            <summary>
+                Sets the discriminator used to query instances of the <see cref="T:Microsoft.EntityFrameworkCore.Metadata.IEntityType"/> being built.
+            </summary>
+            <param name="entityTypeBuilder">The <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder"/> to annotate.</param>
+            <param name="discriminator">The discriminator for the <see cref="T:Microsoft.EntityFrameworkCore.Metadata.IEntityType"/>.</param>
+            <returns>The <paramref name="entityTypeBuilder"/>, such that calls be chained.</returns>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Builders.MongoDbEntityTypeBuilderExtensions.ForMongoDbDiscriminatorIsRequired(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder,System.Boolean)">
+            <summary>
+                Sets the whether or not a discriminator is required to query instances of the <see cref="T:Microsoft.EntityFrameworkCore.Metadata.IEntityType"/> being built.
+            </summary>
+            <param name="entityTypeBuilder">The <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder"/> to annotate.</param>
+            <param name="discriminatorIsRequired">
+                <code>true</code> if a discriminator is required to query instances of the entity; otherwise <code>false</code>.
+            </param>
+            <returns>The <paramref name="entityTypeBuilder"/>, such that calls be chained.</returns>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Builders.MongoDbEntityTypeBuilderExtensions.ForMongoDbIsRootType(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder,System.Boolean)">
+            <summary>
+                Sets whether the <see cref="T:Microsoft.EntityFrameworkCore.Metadata.IEntityType"/> being built is a root type of a polymorphic hierarchy.
+            </summary>
+            <param name="entityTypeBuilder">The <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder"/> to annotate.</param>
+            <param name="isRootType">
+                <code>true</code> if the <see cref="T:Microsoft.EntityFrameworkCore.Metadata.IEntityType"/> is the root entity type; otherwise <code>false</code>.
+            </param>
+            <returns>The <paramref name="entityTypeBuilder"/>, such that calls be chained.</returns>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Builders.MongoDbEntityTypeBuilderExtensions.ForMongoDbAssignIdOnInsert(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder,System.Boolean)">
+            <summary>
+                Sets whether the identity of the <see cref="T:Microsoft.EntityFrameworkCore.Metadata.IEntityType"/> being built should be assigned by MongoDb on insert.
+            </summary>
+            <param name="entityTypeBuilder">The <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder"/> to annotate.</param>
+            <param name="assignIdOnInsert">
+                <code>true</code> if the identity of the <see cref="T:Microsoft.EntityFrameworkCore.Metadata.IEntityType"/> is assigned on insert;
+                otherwise <code>false</code>.
+            </param>
+            <returns>The <paramref name="entityTypeBuilder"/>, such that calls be chained.</returns>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.BsonDiscriminatorAttributeConvention">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.BsonDiscriminatorAttributeConvention.Apply(Microsoft.EntityFrameworkCore.Metadata.Internal.InternalEntityTypeBuilder,MongoDB.Bson.Serialization.Attributes.BsonDiscriminatorAttribute)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.BsonIgnoreAttributeConvention">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.BsonIgnoreAttributeConvention.Apply(Microsoft.EntityFrameworkCore.Metadata.Internal.InternalEntityTypeBuilder)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.BsonRequiredAttributeConvention">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.BsonRequiredAttributeConvention.Apply(Microsoft.EntityFrameworkCore.Metadata.Internal.InternalPropertyBuilder,MongoDB.Bson.Serialization.Attributes.BsonRequiredAttribute,System.Reflection.MemberInfo)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.ComplexTypePropertyDiscoveryConvention">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.ComplexTypePropertyDiscoveryConvention.#ctor(Microsoft.EntityFrameworkCore.Storage.ITypeMappingSource)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.ComplexTypePropertyDiscoveryConvention.Apply(Microsoft.EntityFrameworkCore.Metadata.Internal.InternalEntityTypeBuilder)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.ComplexTypePropertyDiscoveryConvention.IsCandidateComplexTypeProperty(System.Reflection.PropertyInfo)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.ComplexTypePropertyDiscoveryConvention.Apply(Microsoft.EntityFrameworkCore.Metadata.Internal.InternalEntityTypeBuilder,Microsoft.EntityFrameworkCore.Metadata.Internal.EntityType)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.MongoCollectionAttributeConvention">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.MongoCollectionAttributeConvention.Apply(Microsoft.EntityFrameworkCore.Metadata.Internal.InternalEntityTypeBuilder,Blueshift.EntityFrameworkCore.MongoDB.Annotations.MongoCollectionAttribute)">
+            <inheritdoc />
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.MongoDatabaseConvention">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.MongoDatabaseConvention.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.MongoDatabaseConvention.Microsoft#EntityFrameworkCore#Metadata#Conventions#Internal#IModelInitializedConvention#Apply(Microsoft.EntityFrameworkCore.Metadata.Internal.InternalModelBuilder)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.MongoDatabaseConvention.Apply(Microsoft.EntityFrameworkCore.Metadata.Internal.InternalModelBuilder,Blueshift.EntityFrameworkCore.MongoDB.Annotations.MongoDatabaseAttribute)">
+            <inheritdoc />
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.MongoDbAbstractClassConvention">
+            <summary>
+            A convention that specifies that a discriminator is required when the given type is abstract.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.MongoDbAbstractClassConvention.Apply(Microsoft.EntityFrameworkCore.Metadata.Internal.InternalEntityTypeBuilder)">
+            <summary>
+            Applies the Abstract Class convention to the given <paramref name="entityTypeBuilder"/>.
+            </summary>
+            <param name="entityTypeBuilder">The <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Internal.InternalEntityTypeBuilder" /> to which the convention will be applied.</param>
+            <returns>The instance of <paramref name="entityTypeBuilder"/>, modified with this convention.</returns>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.MongoDbBaseTypeDiscoveryConvention">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.MongoDbBaseTypeDiscoveryConvention.Apply(Microsoft.EntityFrameworkCore.Metadata.Internal.InternalEntityTypeBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.MongoDbDatabaseGeneratedAttributeConvention">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.MongoDbDatabaseGeneratedAttributeConvention.Apply(Microsoft.EntityFrameworkCore.Metadata.Internal.InternalPropertyBuilder,System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedAttribute,System.Reflection.MemberInfo)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.MongoDbKeyAttributeConvention">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.MongoDbKeyAttributeConvention.Apply(Microsoft.EntityFrameworkCore.Metadata.Internal.InternalPropertyBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.MongoDbKeyAttributeConvention.Apply(Microsoft.EntityFrameworkCore.Metadata.Internal.InternalModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.MongoDbModelBuiltAttributeConvention`1">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.MongoDbModelBuiltAttributeConvention`1.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.MongoDbModelBuiltAttributeConvention`1.DbContext">
+            <summary>
+            Gets the <see cref="P:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.MongoDbModelBuiltAttributeConvention`1.DbContext"/> whose model is being configured.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.MongoDbModelBuiltAttributeConvention`1.Apply(Microsoft.EntityFrameworkCore.Metadata.Internal.InternalModelBuilder)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.MongoDbModelBuiltAttributeConvention`1.Apply(Microsoft.EntityFrameworkCore.Metadata.Internal.InternalModelBuilder,`0)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.MongoDbRegisterKnownTypesConvention">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.Conventions.MongoDbRegisterKnownTypesConvention.Apply(Microsoft.EntityFrameworkCore.Metadata.Internal.InternalEntityTypeBuilder)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbAnnotationNames">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="F:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbAnnotationNames.CollectionName">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="F:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbAnnotationNames.CollectionSettings">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="F:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbAnnotationNames.Database">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="F:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbAnnotationNames.DatabaseSettings">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="F:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbAnnotationNames.Discriminator">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="F:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbAnnotationNames.DiscriminatorIsRequired">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="F:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbAnnotationNames.IsDerivedType">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="F:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbAnnotationNames.IsRootType">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="F:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbAnnotationNames.Namespace">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbAnnotations`1">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbAnnotations`1.#ctor(`0)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbAnnotations`1.Metadata">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbAnnotations`1.Annotatable">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbAnnotations`1.GetAnnotation``1(System.String)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbAnnotations`1.SetAnnotation``1(System.String,``0)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbAnnotations`1.CanSetAnnotation(System.String,System.Object)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbEntityTypeAnnotations">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbEntityTypeAnnotations.#ctor(Microsoft.EntityFrameworkCore.Metadata.IEntityType)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbEntityTypeAnnotations.AssignIdOnInsert">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbEntityTypeAnnotations.CollectionName">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbEntityTypeAnnotations.CollectionSettings">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbEntityTypeAnnotations.Discriminator">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbEntityTypeAnnotations.DiscriminatorIsRequired">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbEntityTypeAnnotations.IsDerivedType">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbEntityTypeAnnotations.IsRootType">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbModelAnnotations">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbModelAnnotations.#ctor(Microsoft.EntityFrameworkCore.Metadata.IModel)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbModelAnnotations.Database">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Metadata.MongoDbModelAnnotations.DatabaseSettings">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.MethodHelper">
+            <summary>
+            Provides utility methods for retrieving method info.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.MethodHelper.GetGenericMethodDefinition``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            Gets a generic method definition from a given delegate.
+            </summary>
+            <typeparam name="T">The type of the delegate's return value.</typeparam>
+            <param name="delegateExpression">An expression representing a given method call.</param>
+            <returns>The generic method defintion for the method in <paramref name="delegateExpression"/></returns>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.MethodHelper.GetGenericMethodDefinition``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Gets a generic method definition from a given delegate.
+            </summary>
+            <typeparam name="TIn">The type of item on which the delegate is called.</typeparam>
+            <typeparam name="TOut">The type of the delegate's return value.</typeparam>
+            <param name="delegateExpression">An expression representing a given method call.</param>
+            <returns>The generic method defintion for the method in <paramref name="delegateExpression"/></returns>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.ObjectIdTypeConverter">
+            <summary>
+            Provides methods for converting <see cref="T:MongoDB.Bson.ObjectId"/> instances to other types.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.ObjectIdTypeConverter.CanConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            Returns whether this converter can convert an object of the given type to the type of this converter, using the specified context.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext"/> that provides a format context.</param>
+            <param name="sourceType">A <see cref="T:System.Type"/> that represents the type you want to convert from.</param>
+            <returns><code>true</code> if the value can be converted; otherwise <code>false</code>.</returns>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.ObjectIdTypeConverter.ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object)">
+            <summary>
+            Converts the given object to the type of this converter, using the specified context and culture information.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext"/> that provides a format context.</param>
+            <param name="culture">The <see cref="T:System.Globalization.CultureInfo"/> to use as the current culture.</param>
+            <param name="value">The object to convert.</param>
+            <returns>A new <see cref="T:MongoDB.Bson.ObjectId"/> represented by <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.ObjectIdTypeConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            Returns whether this converter can convert the object to the specified type, using the specified context.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext"/> that provides a format context.</param>
+            <param name="destinationType">A <see cref="T:System.Type"/> that represents the type you want to convert to.</param>
+            <returns><code>true</code> if the value can be converted; otherwise <code>false</code>.</returns>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.ObjectIdTypeConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+            <summary>
+            Converts the given value object to the specified type, using the specified context and culture info.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext"/> that provides a format context.</param>
+            <param name="culture">The <see cref="T:System.Globalization.CultureInfo"/> to use as the current culture.</param>
+            <param name="value">The object to convert.</param>
+            <param name="destinationType">The type to convert the value parameter to.</param>
+            <returns>A new instance of the specified <paramref name="destinationType"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Query.ExpressionVisitors.MongoDbEntityQueryableExpressionVisitor">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.ExpressionVisitors.MongoDbEntityQueryableExpressionVisitor.#ctor(Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbEntityQueryModelVisitor,Microsoft.EntityFrameworkCore.Metadata.IModel,Remotion.Linq.Clauses.IQuerySource)">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.ExpressionVisitors.MongoDbEntityQueryableExpressionVisitor.VisitEntityQueryable(System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Query.ExpressionVisitors.MongoDbEntityQueryableExpressionVisitorFactory">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.ExpressionVisitors.MongoDbEntityQueryableExpressionVisitorFactory.#ctor(Microsoft.EntityFrameworkCore.Metadata.IModel)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.ExpressionVisitors.MongoDbEntityQueryableExpressionVisitorFactory.Create(Microsoft.EntityFrameworkCore.Query.EntityQueryModelVisitor,Remotion.Linq.Clauses.IQuerySource)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Query.ExpressionVisitors.MongoDbMemberAccessBindingExpressionVisitor">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.ExpressionVisitors.MongoDbMemberAccessBindingExpressionVisitor.#ctor(Remotion.Linq.Clauses.QuerySourceMapping,Microsoft.EntityFrameworkCore.Query.EntityQueryModelVisitor,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.ExpressionVisitors.MongoDbMemberAccessBindingExpressionVisitor.VisitMethodCall(System.Linq.Expressions.MethodCallExpression)">
+            <inheritdoc />
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Query.ExpressionVisitors.MongoDbMemberAccessBindingExpressionVisitorFactory">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.ExpressionVisitors.MongoDbMemberAccessBindingExpressionVisitorFactory.Create(Remotion.Linq.Clauses.QuerySourceMapping,Microsoft.EntityFrameworkCore.Query.EntityQueryModelVisitor,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Query.IMongoDbLinqOperatorProvider">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.IMongoDbLinqOperatorProvider.OrderByDescending">
+            <inheritdoc cref="P:Microsoft.EntityFrameworkCore.Query.Internal.ILinqOperatorProvider.OrderBy"/>
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.IMongoDbLinqOperatorProvider.ThenByDescending">
+            <inheritdoc cref="P:Microsoft.EntityFrameworkCore.Query.Internal.ILinqOperatorProvider.ThenBy"/>
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.IMongoDbLinqOperatorProvider.ToList">
+            <inheritdoc cref="P:Microsoft.EntityFrameworkCore.Query.Internal.ILinqOperatorProvider.ToOrdered"/>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbEntityQueryModelVisitor">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbEntityQueryModelVisitor.#ctor(Microsoft.EntityFrameworkCore.Query.EntityQueryModelVisitorDependencies,Microsoft.EntityFrameworkCore.Query.QueryCompilationContext)">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbEntityQueryModelVisitor.VisitAdditionalFromClause(Remotion.Linq.Clauses.AdditionalFromClause,Remotion.Linq.QueryModel,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbEntityQueryModelVisitor.VisitJoinClause(Remotion.Linq.Clauses.JoinClause,Remotion.Linq.QueryModel,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbEntityQueryModelVisitor.VisitGroupJoinClause(Remotion.Linq.Clauses.GroupJoinClause,Remotion.Linq.QueryModel,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbEntityQueryModelVisitor.VisitSelectClause(Remotion.Linq.Clauses.SelectClause,Remotion.Linq.QueryModel)">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbEntityQueryModelVisitor.IntroduceTransparentScope(Remotion.Linq.Clauses.IQuerySource,Remotion.Linq.QueryModel,System.Int32,System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbEntityQueryModelVisitor.OptimizeQueryModel(Remotion.Linq.QueryModel,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbEntityQueryModelVisitor.VisitOrdering(Remotion.Linq.Clauses.Ordering,Remotion.Linq.QueryModel,Remotion.Linq.Clauses.OrderByClause,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbEntityQueryModelVisitor.CreateTransparentIdentifierType(System.Type,System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbEntityQueryModelVisitor.CallCreateTransparentIdentifier(System.Type,System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)">
+            <inheritdoc />
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbEntityQueryModelVisitorFactory">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbEntityQueryModelVisitorFactory.#ctor(Microsoft.EntityFrameworkCore.Query.EntityQueryModelVisitorDependencies)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbEntityQueryModelVisitorFactory.Create(Microsoft.EntityFrameworkCore.Query.QueryCompilationContext,Microsoft.EntityFrameworkCore.Query.EntityQueryModelVisitor)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbIncludeCompiler">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbIncludeCompiler.#ctor(Microsoft.EntityFrameworkCore.Query.QueryCompilationContext,Microsoft.EntityFrameworkCore.Query.ExpressionVisitors.Internal.IQuerySourceTracingExpressionVisitorFactory)">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbIncludeCompiler.IncludePaths">
+            <summary>
+            Gets a <see cref="T:System.Collections.Generic.Stack`1"/> of <see cref="T:System.Collections.Generic.IList`1"/> of <see cref="T:Microsoft.EntityFrameworkCore.Metadata.INavigation"/> properties representing the processed includes.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbIncludeCompiler.CompileIncludes(Remotion.Linq.QueryModel,System.Boolean,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.All">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.Any">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.Cast">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.Concat">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.Contains">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.Count">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.Distinct">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.Except">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.First">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.FirstOrDefault">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.GroupBy">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.GroupJoin">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.Intersect">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.Join">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.Last">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.LastOrDefault">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.LongCount">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.OfType">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.OrderBy">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.OrderByDescending">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.Select">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.SelectMany">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.Single">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.SingleOrDefault">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.Skip">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.Take">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.ThenBy">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.ThenByDescending">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.ToList">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.TrackEntities">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.Union">
+            <inheritdoc />
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbLinqOperatorProvider.Where">
+            <inheritdoc />
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbQueryBuffer">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbQueryBuffer.#ctor(Microsoft.EntityFrameworkCore.Query.QueryContextDependencies)">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbQueryBuffer.GetPropertyValue(System.Object,Microsoft.EntityFrameworkCore.Metadata.IProperty)">
+            <inheritdoc />
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbQueryCompilationContext">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbQueryCompilationContext.#ctor(Microsoft.EntityFrameworkCore.Query.Internal.QueryCompilationContextDependencies,Microsoft.EntityFrameworkCore.Query.Internal.ILinqOperatorProvider,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbQueryCompilationContext.FindQuerySourcesRequiringMaterialization(Microsoft.EntityFrameworkCore.Query.EntityQueryModelVisitor,Remotion.Linq.QueryModel)">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbQueryCompilationContext.DetermineQueryBufferRequirement(Remotion.Linq.QueryModel)">
+            <inheritdoc />
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbQueryCompilationContextFactory">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbQueryCompilationContextFactory.#ctor(Microsoft.EntityFrameworkCore.Query.Internal.QueryCompilationContextDependencies)">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbQueryCompilationContextFactory.Create(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbQueryContext">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbQueryContext.#ctor(Microsoft.EntityFrameworkCore.Query.QueryContextDependencies,System.Func{Microsoft.EntityFrameworkCore.Query.Internal.IQueryBuffer},Blueshift.EntityFrameworkCore.MongoDB.Storage.IMongoDbConnection)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbQueryContext.MongoDbConnection">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbQueryContextFactory">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbQueryContextFactory.#ctor(Microsoft.EntityFrameworkCore.Query.QueryContextDependencies,Blueshift.EntityFrameworkCore.MongoDB.Storage.IMongoDbConnection)">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbQueryContextFactory.Create">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Query.MongoDbQueryContextFactory.CreateQueryBuffer">
+            <inheritdoc />
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Storage.IMongoDbConnection">
+            <summary>
+                An interface for a service that can be used to interact with a MongoDB instance.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Storage.IMongoDbConnection.GetDatabase">
+            <summary>
+                Gets the <see cref="T:MongoDB.Driver.IMongoDatabase"/> used by the current model.
+            </summary>
+            <returns>The <see cref="T:MongoDB.Driver.IMongoDatabase"/> used by the MongoDB C# driver to communicate with the MongoDB instance.</returns>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Storage.IMongoDbConnection.GetDatabaseAsync(System.Threading.CancellationToken)">
+            <summary>
+                Asynchronously gets the <see cref="T:MongoDB.Driver.IMongoDatabase"/> used by the current model.
+            </summary>
+            <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken"/> to observe while waiting for the task to complete.</param>
+            <returns>
+                A <see cref="T:System.Threading.Tasks.Task`1"/> representing the state of the operation. The result contains The
+                <see cref="T:MongoDB.Driver.IMongoDatabase"/> used by the MongoDB C# driver to communicate with the MongoDB instance.
+            </returns>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Storage.IMongoDbConnection.DropDatabase">
+            <summary>
+                Drops the database used by this model from the MongoDB instance.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Storage.IMongoDbConnection.DropDatabaseAsync(System.Threading.CancellationToken)">
+            <summary>
+                Asynchronously drops the database used by this model from the MongoDB instance.
+            </summary>
+            <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken"/> to observe while waiting for the task to complete.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the state of the operation.</returns>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Storage.IMongoDbConnection.GetCollection``1">
+            <summary>
+                Gets a <see cref="T:MongoDB.Driver.IMongoCollection`1"/> instance that can be used to store instances of <typeparamref name="TEntity"/>.
+            </summary>
+            <typeparam name="TEntity">The type of entity stored in the collection.</typeparam>
+            <returns>The <see cref="T:MongoDB.Driver.IMongoCollection`1"/> instance that can store <typeparamref name="TEntity"/>.</returns>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Storage.IMongoDbConnection.Query``1">
+            <summary>
+                Gets a <see cref="T:System.Linq.IQueryable`1"/> that can be used to query instances of <typeparamref name="TEntity"/>.
+            </summary>
+            <typeparam name="TEntity">The type of entity to query.</typeparam>
+            <returns>An <see cref="T:System.Linq.IQueryable`1"/> that can query <typeparamref name="TEntity"/> values from the MongoDB instance.</returns>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Storage.IMongoDbTypeMappingSource">
+            <inheritdoc />
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Storage.MongoDbConnection">
+            <summary>
+                A service that can be used to interact with a MongoDB instance.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Storage.MongoDbConnection.#ctor(MongoDB.Driver.IMongoClient,Microsoft.EntityFrameworkCore.Metadata.IModel)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Storage.MongoDbConnection"/> class.
+            </summary>
+            <param name="mongoClient">The <see cref="T:MongoDB.Driver.IMongoClient"/> used to communicate with the MongoDB instance.</param>
+            <param name="model">The <see cref="T:Microsoft.EntityFrameworkCore.Metadata.IModel"/> used by this connection.</param>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Storage.MongoDbConnection.GetDatabase">
+            <summary>
+                Gets the <see cref="T:MongoDB.Driver.IMongoDatabase"/> used by the current model.
+            </summary>
+            <returns>The <see cref="T:MongoDB.Driver.IMongoDatabase"/> used by the MongoDB C# driver to communicate with the MongoDB instance.</returns>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Storage.MongoDbConnection.GetDatabaseAsync(System.Threading.CancellationToken)">
+            <summary>
+                Asynchronously gets the <see cref="T:MongoDB.Driver.IMongoDatabase"/> used by the current model.
+            </summary>
+            <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken"/> to observe while waiting for the task to complete.</param>
+            <returns>
+                A <see cref="T:System.Threading.Tasks.Task`1"/> representing the state of the operation. The result contains The
+                <see cref="T:MongoDB.Driver.IMongoDatabase"/> used by the MongoDB C# driver to communicate with the MongoDB instance.
+            </returns>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Storage.MongoDbConnection.DropDatabase">
+            <summary>
+                Drops the database used by this model from the MongoDB instance.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Storage.MongoDbConnection.DropDatabaseAsync(System.Threading.CancellationToken)">
+            <summary>
+                Asynchronously drops the database used by this model from the MongoDB instance.
+            </summary>
+            <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken"/> to observe while waiting for the task to complete.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the state of the operation.</returns>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Storage.MongoDbConnection.GetCollection``1">
+            <summary>
+                Gets a <see cref="T:MongoDB.Driver.IMongoCollection`1"/> instance that can be used to store instances of <typeparamref name="TEntity"/>.
+            </summary>
+            <typeparam name="TEntity">The type of entity stored in the collection.</typeparam>
+            <returns>The <see cref="T:MongoDB.Driver.IMongoCollection`1"/> instance that can store <typeparamref name="TEntity"/>.</returns>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Storage.MongoDbConnection.Query``1">
+            <summary>
+                Gets a <see cref="T:System.Linq.IQueryable`1"/> that can be used to query instances of <typeparamref name="TEntity"/>.
+            </summary>
+            <typeparam name="TEntity">The type of entity to query.</typeparam>
+            <returns>An <see cref="T:System.Linq.IQueryable`1"/> that can query <typeparamref name="TEntity"/> values from the MongoDB instance.</returns>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Storage.MongoDbDatabase">
+            <summary>
+                The main interaction point between a context and MongoDB.
+                This type is typically used by database providers (and other extensions). It
+                is generally not used in application code.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Storage.MongoDbDatabase.#ctor(Microsoft.EntityFrameworkCore.Storage.DatabaseDependencies,Blueshift.EntityFrameworkCore.MongoDB.Storage.IMongoDbConnection,Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactorySelector)">
+            <summary>
+            Initializes a new instance of hte <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Storage.MongoDbDatabase"/> class.
+            </summary>
+            <param name="databaseDependencies">Parameter object containing dependencies for this service.</param>
+            <param name="mongoDbConnection">A <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Storage.IMongoDbConnection"/> used to communicate with the MongoDB instance.</param>
+            <param name="mongoDbWriteModelFactorySelector">The <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactorySelector"/> to use to create
+            <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactory`1"/> instances.</param>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Storage.MongoDbDatabase.SaveChanges(System.Collections.Generic.IReadOnlyList{Microsoft.EntityFrameworkCore.Update.IUpdateEntry})">
+            <summary>
+                Persists changes from the supplied entries to the database.
+            </summary>
+            <param name="entries">A list of entries to be persisted.</param>
+            <returns>The number of entries that were persisted.</returns>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Storage.MongoDbDatabase.SaveChangesAsync(System.Collections.Generic.IReadOnlyList{Microsoft.EntityFrameworkCore.Update.IUpdateEntry},System.Threading.CancellationToken)">
+            <summary>
+                Asynchronously persists changes from the supplied entries to the database.
+            </summary>
+            <param name="entries">A list of entries to be persisted.</param>
+            <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken"/> to observe while waiting for the task to complete.</param>
+            <returns>
+                A <see cref="T:System.Threading.Tasks.Task`1"/> representing the state of the operation. The result contains the number
+                of entries that were persisted to the database.
+            </returns>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Storage.MongoDbDatabase.CompileAsyncQuery``1(Remotion.Linq.QueryModel)">
+            <inheritdoc />
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Storage.MongoDbDatabaseCreator">
+            <summary>
+                Creates and deletes databases for a given database provider.
+                This interface is typically used by database providers (and other extensions).
+                It is generally not used in application code.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Storage.MongoDbDatabaseCreator.#ctor(Blueshift.EntityFrameworkCore.MongoDB.Storage.IMongoDbConnection)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Storage.MongoDbDatabaseCreator"/> class.
+            </summary>
+            <param name="mongoDbConnection">The <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Storage.IMongoDbConnection"/> used to communicate with the MongoDB instance.</param>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Storage.MongoDbDatabaseCreator.EnsureCreated">
+            <summary>
+                Ensures that the database for the context exists.
+            </summary>
+            <returns>
+                MongoDB databases will always be created when they are first referenced, so this method will always
+                return <code>false</code>.
+            </returns>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Storage.MongoDbDatabaseCreator.EnsureCreatedAsync(System.Threading.CancellationToken)">
+            <summary>
+                Asynchronously ensures that the database for the context exists.
+            </summary>
+            <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken"/> to observe while waiting for the task to complete.</param>
+            <returns>
+                A task that represents the asynchronous save operation. MongoDB databases will always be created when they are
+                first referenced, so the result will always contain <code>false</code>.
+            </returns>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Storage.MongoDbDatabaseCreator.EnsureDeleted">
+            <summary>
+                Ensures that the database for the context does not exist.
+            </summary>
+            <returns>
+                MongoDB database are always created when they are first referenced, so this method
+                will always return <code>true</code>.
+            </returns>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Storage.MongoDbDatabaseCreator.EnsureDeletedAsync(System.Threading.CancellationToken)">
+            <summary>
+                Asynchronously ensures that the database for the context does not exist.
+            </summary>
+            <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken"/> to observe while waiting for the task to complete.</param>
+            <returns>
+                A task that represents the asynchronous save operation. MongoDB database are always created when they are first
+                referenced, so the result will always contain <code>true</code>.
+            </returns>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Storage.MongoDbTypeMappingSource">
+            <summary>
+            Determines whether a .NET type can be mapped to a MongoDB database type.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Storage.MongoDbTypeMappingSource.#ctor(Microsoft.EntityFrameworkCore.Storage.TypeMappingSourceDependencies)">
+            <inheritdoc />
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Storage.MongoDbTypeMappingSource.FindMapping(Microsoft.EntityFrameworkCore.Storage.TypeMappingInfo@)">
+            <inheritdoc />
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Update.DeleteOneModelFactory`1">
+            <summary>
+            Creates <see cref="T:MongoDB.Driver.DeleteOneModel`1"/> from a given <see cref="T:Microsoft.EntityFrameworkCore.Update.IUpdateEntry"/>.
+            </summary>
+            <typeparam name="TEntity">The type of entity being added.</typeparam>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Update.DeleteOneModelFactory`1.#ctor(Microsoft.EntityFrameworkCore.ValueGeneration.IValueGeneratorSelector,Microsoft.EntityFrameworkCore.Metadata.IEntityType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.MongoDbWriteModelFactory`1"/> class.
+            </summary>
+            <param name="valueGeneratorSelector">The <see cref="T:Microsoft.EntityFrameworkCore.ValueGeneration.IValueGeneratorSelector"/> to use for populating concurrency tokens.</param>
+            <param name="entityType">The <see cref="T:Microsoft.EntityFrameworkCore.Metadata.IEntityType"/> for which this <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.MongoDbWriteModelFactory`1"/> will be used.</param>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Update.DeleteOneModelFactory`1.CreateWriteModel(Microsoft.EntityFrameworkCore.Update.IUpdateEntry)">
+            <summary>
+            Creates an <see cref="T:MongoDB.Driver.DeleteOneModel`1"/> that maps the given <paramref name="updateEntry"/>.
+            </summary>
+            <param name="updateEntry">The <see cref="T:Microsoft.EntityFrameworkCore.Update.IUpdateEntry"/> to map.</param>
+            <returns>A new <see cref="T:MongoDB.Driver.DeleteOneModel`1"/> containing the inserted values represented
+            by <paramref name="updateEntry"/>.</returns>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactory`1">
+            <summary>
+            Interface for generating <see cref="T:MongoDB.Driver.WriteModel`1"/> instances from <see cref="T:Microsoft.EntityFrameworkCore.Update.IUpdateEntry"/> instances.
+            </summary>
+            <typeparam name="TEntity">The type of entity being updated</typeparam>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactory`1.CreateWriteModel(Microsoft.EntityFrameworkCore.Update.IUpdateEntry)">
+            <summary>
+            Converts an <see cref="T:Microsoft.EntityFrameworkCore.Update.IUpdateEntry"/> instance to a <see cref="T:MongoDB.Driver.WriteModel`1"/> instance.
+            </summary>
+            <param name="updateEntry">The <see cref="T:Microsoft.EntityFrameworkCore.Update.IUpdateEntry"/> entry to convert.</param>
+            <returns>A new <see cref="T:MongoDB.Driver.WriteModel`1"/> that contains the updates in <see cref="T:Microsoft.EntityFrameworkCore.Update.IUpdateEntry"/>.</returns>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactoryCache">
+            <summary>
+            Caches <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactory`1"/> instances.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactoryCache.GetOrAdd``1(Microsoft.EntityFrameworkCore.Metadata.IEntityType,Microsoft.EntityFrameworkCore.EntityState,System.Func{Microsoft.EntityFrameworkCore.Metadata.IEntityType,Microsoft.EntityFrameworkCore.EntityState,Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactory{``0}})">
+            <summary>
+            Returns a cached or newly created instance of <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactory`1"/> for the given 
+            <paramref name="entityType"/> and <paramref name="entityState"/>.
+            </summary>
+            <typeparam name="TEntity">The type of entity being written.</typeparam>
+            <param name="entityType">The <see cref="T:Microsoft.EntityFrameworkCore.Metadata.IEntityType"/> that contains the entity metadata.</param>
+            <param name="entityState">The <see cref="T:Microsoft.EntityFrameworkCore.EntityState"/> describing the type of <see cref="T:MongoDB.Driver.WriteModel`1"/>
+            that returned the factory will produce.</param>
+            <param name="factoryFunc">A <see cref="T:System.Func`3"/> that can
+            be used to create a new factory instance if one has not previously been cached.</param>
+            <returns>A new or cached instance of <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactory`1"/>.</returns>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactorySelector">
+            <summary>
+            Interface for selecting an instance of <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactory`1"/>.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactorySelector.Select``1(Microsoft.EntityFrameworkCore.Update.IUpdateEntry)">
+            <summary>
+            Select an <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactory`1"/> instance for the given <paramref name="updateEntry"/>.
+            </summary>
+            <param name="updateEntry">The <see cref="T:Microsoft.EntityFrameworkCore.Update.IUpdateEntry"/> that the write model factory will be used to translate.</param>
+            <typeparam name="TEntity">The type of entity for which to create a <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactory`1"/> instance.</typeparam>
+            <returns>An instance of <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactory`1"/> that can be used to convert <see cref="T:Microsoft.EntityFrameworkCore.Update.IUpdateEntry"/>
+            instances to <see cref="T:MongoDB.Driver.WriteModel`1"/> instances.</returns>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Update.InsertOneModelFactory`1">
+            <summary>
+            Creates <see cref="T:MongoDB.Driver.InsertOneModel`1"/> from a given <see cref="T:Microsoft.EntityFrameworkCore.Update.IUpdateEntry"/>.
+            </summary>
+            <typeparam name="TEntity">The type of entity being added.</typeparam>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Update.InsertOneModelFactory`1.#ctor(Microsoft.EntityFrameworkCore.ValueGeneration.IValueGeneratorSelector,Microsoft.EntityFrameworkCore.Metadata.IEntityType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.MongoDbWriteModelFactory`1"/> class.
+            </summary>
+            <param name="valueGeneratorSelector">The <see cref="T:Microsoft.EntityFrameworkCore.ValueGeneration.IValueGeneratorSelector"/> to use for populating concurrency tokens.</param>
+            <param name="entityType">The <see cref="T:Microsoft.EntityFrameworkCore.Metadata.IEntityType"/> for which this <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.MongoDbWriteModelFactory`1"/> will be used.</param>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Update.InsertOneModelFactory`1.CreateWriteModel(Microsoft.EntityFrameworkCore.Update.IUpdateEntry)">
+            <summary>
+            Creates an <see cref="T:MongoDB.Driver.InsertOneModel`1"/> that maps the given <paramref name="updateEntry"/>.
+            </summary>
+            <param name="updateEntry">The <see cref="T:Microsoft.EntityFrameworkCore.Update.IUpdateEntry"/> to map.</param>
+            <returns>A new <see cref="T:MongoDB.Driver.InsertOneModel`1"/> containing the inserted values represented
+            by <paramref name="updateEntry"/>.</returns>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Update.IWriteModelGenerator`1">
+            <summary>
+            Generates a <see cref="T:MongoDB.Driver.WriteModel`1"/> given an <see cref="T:Microsoft.EntityFrameworkCore.Update.IUpdateEntry"/>.
+            </summary>
+            <typeparam name="TEntity">The type of entity being written.</typeparam>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Update.IWriteModelGenerator`1.GenerateWriteModel(Microsoft.EntityFrameworkCore.Update.IUpdateEntry)">
+            <summary>
+            Creates a <see cref="T:MongoDB.Driver.WriteModel`1"/> that maps the given <paramref name="updateEntry"/>.
+            </summary>
+            <param name="updateEntry">The <see cref="T:Microsoft.EntityFrameworkCore.Update.IUpdateEntry"/> to map.</param>
+            <returns>A new <see cref="T:MongoDB.Driver.WriteModel`1"/> containing the database changes represented
+            by <paramref name="updateEntry"/>.</returns>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Update.MongoDbWriteModelFactory`1">
+            <summary>
+            Base class for generating <see cref="T:MongoDB.Driver.WriteModel`1"/> instances.
+            </summary>
+            <typeparam name="TEntity">The type of entity to write.</typeparam>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Update.MongoDbWriteModelFactory`1.#ctor(Microsoft.EntityFrameworkCore.ValueGeneration.IValueGeneratorSelector,Microsoft.EntityFrameworkCore.Metadata.IEntityType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.MongoDbWriteModelFactory`1"/> class.
+            </summary>
+            <param name="valueGeneratorSelector">The <see cref="T:Microsoft.EntityFrameworkCore.ValueGeneration.IValueGeneratorSelector"/> to use for populating concurrency tokens.</param>
+            <param name="entityType">The <see cref="T:Microsoft.EntityFrameworkCore.Metadata.IEntityType"/> for which this <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.MongoDbWriteModelFactory`1"/> will be used.</param>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Update.MongoDbWriteModelFactory`1.CreateWriteModel(Microsoft.EntityFrameworkCore.Update.IUpdateEntry)">
+            <summary>
+            Converts an <see cref="T:Microsoft.EntityFrameworkCore.Update.IUpdateEntry"/> instance to a <see cref="T:MongoDB.Driver.WriteModel`1"/> instance.
+            </summary>
+            <param name="updateEntry">The <see cref="T:Microsoft.EntityFrameworkCore.Update.IUpdateEntry"/> entry to convert.</param>
+            <returns>A new <see cref="T:MongoDB.Driver.WriteModel`1"/> that contains the updates in <see cref="T:Microsoft.EntityFrameworkCore.Update.IUpdateEntry"/>.</returns>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Update.MongoDbWriteModelFactory`1.GetLookupFilter(Microsoft.EntityFrameworkCore.Update.IUpdateEntry)">
+            <summary>
+            Generates a <see cref="T:MongoDB.Driver.FilterDefinition`1"/> for <paramref name="updateEntry"/>.
+            </summary>
+            <param name="updateEntry">The <see cref="T:Microsoft.EntityFrameworkCore.Update.IUpdateEntry"/> for the document being updated.</param>
+            <returns>A new <see cref="T:MongoDB.Driver.FilterDefinition`1"/> that can matches the document in <paramref name="updateEntry"/>.</returns>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Update.MongoDbWriteModelFactory`1.UpdateDbGeneratedProperties(Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry)">
+            <summary>
+            Updates the database-generated properties for <paramref name="internalEntityEntry"/>.
+            </summary>
+            <param name="internalEntityEntry">The <see cref="T:Microsoft.EntityFrameworkCore.Update.IUpdateEntry"/> the <see cref="T:Microsoft.EntityFrameworkCore.Update.IUpdateEntry"/> representing the document being updated.</param>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Update.MongoDbWriteModelFactoryCache">
+            <summary>
+            Caches <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactory`1"/> instances.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Update.MongoDbWriteModelFactoryCache.GetOrAdd``1(Microsoft.EntityFrameworkCore.Metadata.IEntityType,Microsoft.EntityFrameworkCore.EntityState,System.Func{Microsoft.EntityFrameworkCore.Metadata.IEntityType,Microsoft.EntityFrameworkCore.EntityState,Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactory{``0}})">
+            <summary>
+            Returns a cached or newly created instance of <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactory`1"/> for the given 
+            <paramref name="entityType"/> and <paramref name="entityState"/>.
+            </summary>
+            <typeparam name="TEntity">The type of entity being written.</typeparam>
+            <param name="entityType">The <see cref="T:Microsoft.EntityFrameworkCore.Metadata.IEntityType"/> that contains the entity metadata.</param>
+            <param name="entityState">The <see cref="T:Microsoft.EntityFrameworkCore.EntityState"/> describing the type of <see cref="T:MongoDB.Driver.WriteModel`1"/>
+            that returned the factory will produce.</param>
+            <param name="factoryFunc">A <see cref="T:System.Func`3"/> that can
+            be used to create a new factory instance if one has not previously been cached.</param>
+            <returns>A new or cached instance of <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactory`1"/>.</returns>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Update.MongoDbWriteModelFactorySelector">
+            <summary>
+            Selects an instance of <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactory`1"/> for a given <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Internal.EntityType"/>.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Update.MongoDbWriteModelFactorySelector.#ctor(Microsoft.EntityFrameworkCore.ValueGeneration.IValueGeneratorSelector,Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactoryCache)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactorySelector"/> class.
+            </summary>
+            <param name="valueGeneratorSelector">The <see cref="T:Microsoft.EntityFrameworkCore.ValueGeneration.IValueGeneratorSelector"/> to use for populating concurrency tokens.</param>
+            <param name="mongoDbWriteModelFactoryCache">A <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactoryCache"/> that can be used to cache the
+            factory instances returned by this <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactorySelector"/>.</param>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Update.MongoDbWriteModelFactorySelector.Select``1(Microsoft.EntityFrameworkCore.Update.IUpdateEntry)">
+            <summary>
+            Select an <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactory`1"/> instance for the given <paramref name="updateEntry"/>.
+            </summary>
+            <param name="updateEntry">The <see cref="T:Microsoft.EntityFrameworkCore.Update.IUpdateEntry"/> that the write model factory will be used to translate.</param>
+            <typeparam name="TEntity">The type of entity for which to create a <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactory`1"/> instance.</typeparam>
+            <returns>An instance of <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactory`1"/> that can be used to convert <see cref="T:Microsoft.EntityFrameworkCore.Update.IUpdateEntry"/>
+            instances to <see cref="T:MongoDB.Driver.WriteModel`1"/> instances.</returns>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Update.MongoDbWriteModelFactorySelector.Create``1(Microsoft.EntityFrameworkCore.Metadata.IEntityType,Microsoft.EntityFrameworkCore.EntityState)">
+            <summary>
+            Creates a new instance of <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactory`1"/> for the given <paramref name="entityType"/>
+            and <paramref name="entityState"/>.
+            </summary>
+            <typeparam name="TEntity">The type of entity for which to create a <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.IMongoDbWriteModelFactory`1"/> instance.</typeparam>
+            <param name="entityType"></param>
+            <param name="entityState"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.Update.UpdateOneModelFactory`1">
+            <summary>
+            Creates <see cref="T:MongoDB.Driver.UpdateOneModel`1"/> from a given <see cref="T:Microsoft.EntityFrameworkCore.Update.IUpdateEntry"/>.
+            </summary>
+            <typeparam name="TEntity">The type of entity being added.</typeparam>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Update.UpdateOneModelFactory`1.#ctor(Microsoft.EntityFrameworkCore.ValueGeneration.IValueGeneratorSelector,Microsoft.EntityFrameworkCore.Metadata.IEntityType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.MongoDbWriteModelFactory`1"/> class.
+            </summary>
+            <param name="valueGeneratorSelector">The <see cref="T:Microsoft.EntityFrameworkCore.ValueGeneration.IValueGeneratorSelector"/> to use for populating concurrency tokens.</param>
+            <param name="entityType">The <see cref="T:Microsoft.EntityFrameworkCore.Metadata.IEntityType"/> for which this <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.Update.MongoDbWriteModelFactory`1"/> will be used.</param>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.Update.UpdateOneModelFactory`1.CreateWriteModel(Microsoft.EntityFrameworkCore.Update.IUpdateEntry)">
+            <summary>
+            Creates an <see cref="T:MongoDB.Driver.UpdateOneModel`1"/> that maps the given <paramref name="updateEntry"/>.
+            </summary>
+            <param name="updateEntry">The <see cref="T:Microsoft.EntityFrameworkCore.Update.IUpdateEntry"/> to map.</param>
+            <returns>A new <see cref="T:MongoDB.Driver.UpdateOneModel`1"/> containing the inserted values represented
+            by <paramref name="updateEntry"/>.</returns>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.ValueGeneration.MongoDbValueGeneratorSelector">
+            <summary>
+                Selects value generators to be used to generate values for properties of entities.
+                This type is typically used by database providers (and other extensions). It
+                is generally not used in application code.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.ValueGeneration.MongoDbValueGeneratorSelector.#ctor(Microsoft.EntityFrameworkCore.ValueGeneration.ValueGeneratorSelectorDependencies)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.ValueGeneration.MongoDbValueGeneratorSelector"/> class.
+            </summary>
+            <param name="dependencies">Parameter object containing dependencies for this service.</param>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.ValueGeneration.MongoDbValueGeneratorSelector.Create(Microsoft.EntityFrameworkCore.Metadata.IProperty,Microsoft.EntityFrameworkCore.Metadata.IEntityType)">
+            <summary>
+                Creates a new value generator for the given property.
+            </summary>
+            <param name="property">The property to get the value generator for.</param>
+            <param name="entityType">
+                The entity type that the value generator will be used for. When called on inherited
+                properties on derived entity types, this entity type may be different from the
+                declared entity type on property
+            </param>
+            <returns>The newly created value generator.</returns>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDB.ValueGeneration.ObjectIdValueGenerator">
+            <summary>
+                Generates values for <see cref="T:MongoDB.Bson.ObjectId"/> properties when an entity is added to a context.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDB.ValueGeneration.ObjectIdValueGenerator.Next(Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry)">
+            <summary>
+                Generates a new <see cref="T:MongoDB.Bson.ObjectId"/> value.
+            </summary>
+            <param name="entry">The <see cref="T:Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry"/> whose value is to be generated.</param>
+            <returns>A new <see cref="T:MongoDB.Bson.ObjectId"/> for <see cref="T:Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry"/>.</returns>
+        </member>
+        <member name="P:Blueshift.EntityFrameworkCore.MongoDB.ValueGeneration.ObjectIdValueGenerator.GeneratesTemporaryValues">
+            <summary>
+                <code>true</code> if this <see cref="T:Blueshift.EntityFrameworkCore.MongoDB.ValueGeneration.ObjectIdValueGenerator"/> generates temporary values;
+                otherwise <code>false</code>.
+            </summary>
+            <remarks>Always returns <c>false</c>.</remarks>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.DbContextOptionsExtensions">
+            <summary>
+            Provides a set of extension methods for instances of the <see cref="T:Microsoft.EntityFrameworkCore.Infrastructure.IDbContextOptions"/> interface.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.DbContextOptionsExtensions.Extract``1(Microsoft.EntityFrameworkCore.Infrastructure.IDbContextOptions)">
+            <summary>
+            Extracts a single instance of the <typeparamref name="TExtension"/> from this <paramref name="dbContextOptions"/>.
+            </summary>
+            <typeparam name="TExtension">The type of <see cref="T:Microsoft.EntityFrameworkCore.Infrastructure.IDbContextOptionsExtension"/> to be extracted.</typeparam>
+            <param name="dbContextOptions">An instance of <see cref="T:Microsoft.EntityFrameworkCore.Infrastructure.IDbContextOptions"/> to search for the given extension.</param>
+            <returns>The single instance of <typeparamref name="TExtension"/> that was found.</returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if no instance of the <typeparamref name="TExtension"/> could be found, or if more than one was found.
+            </exception>
+        </member>
+        <member name="T:Blueshift.EntityFrameworkCore.MongoDbUtilities">
+            <summary>
+            A set of utilities to assist with MongoDb values.
+            </summary>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDbUtilities.ToLowerCamelCase(System.String)">
+            <summary>
+            Converts the first character or group of capital characters of a string to lower camel case.
+            </summary>
+            <param name="value">The string to convert to lower camel case.</param>
+            <returns>A string containing a lower camel case version of the original <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:Blueshift.EntityFrameworkCore.MongoDbUtilities.Pluralize(System.String)">
+            <summary>
+            Pluralizes a string by replacing any trailing 'y' with 'ies'.
+            </summary>
+            <param name="value">The string to pluralize.</param>
+            <returns>A pluralized version of the original <paramref name="value"/>.</returns>
+        </member>
+        <member name="T:MongoDB.Bson.Serialization.BsonSerializerExtensions">
+            <summary>
+            Provides extended functionality to <see cref="T:MongoDB.Bson.Serialization.IBsonSerializer"/>.
+            </summary>
+        </member>
+        <member name="M:MongoDB.Bson.Serialization.BsonSerializerExtensions.AsNavigationBsonSerializer(MongoDB.Bson.Serialization.IBsonSerializer,System.Collections.Generic.IEnumerable{MongoDB.Bson.Serialization.BsonMemberMap})">
+            <summary>
+            Modifies an instance of <see cref="T:MongoDB.Bson.Serialization.IBsonSerializer"/> to only use the supplied members when serializing instances.
+            </summary>
+            <param name="bsonSerializer">The <see cref="T:MongoDB.Bson.Serialization.IBsonSerializer"/> to modify.</param>
+            <param name="denormalizedMembers">An <see cref="T:System.Collections.Generic.IEnumerable`1"/> of <see cref="T:MongoDB.Bson.Serialization.BsonMemberMap"/> that lists the members
+            required for serialization.</param>
+            <returns>A new instance of <see cref="T:MongoDB.Bson.Serialization.IBsonSerializer"/> that serializes the information in <paramref name="denormalizedMembers"/>.</returns>
+        </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.MongoDbEfServiceCollectionExtensions">
+            <summary>
+            Extends <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> with methods for use with the MongoDb EntityFrameworkCore provider.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.MongoDbEfServiceCollectionExtensions.AddEntityFrameworkMongoDb(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Populates the given <paramref name="serviceCollection"/> instance with the service dependencies for
+            the MongoDb provider for EntityFrameworkCore.
+            </summary>
+            <param name="serviceCollection">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> instance of populate.</param>
+            <returns>The <paramref name="serviceCollection"/> populated with the MongoDb EntityFrameworkCore dependencies.</returns>
+        </member>
+        <member name="T:Microsoft.EntityFrameworkCore.MongoDbContextOptionsBuilder">
+            <summary>
+                <para>
+                    Allows MongoDb-specific configuration to be performed on <see cref="T:Microsoft.EntityFrameworkCore.DbContextOptions" />.
+                </para>
+                <para>
+                    Instances of this class are returned from a call to
+                    <see cref="M:Microsoft.EntityFrameworkCore.MongoDbContextOptionsBuilderExtensions.UseMongoDb(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder,System.String,System.Action{Microsoft.EntityFrameworkCore.MongoDbContextOptionsBuilder})" />
+                    and it is not designed to be directly constructed in your application code.
+                </para>
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.MongoDbContextOptionsBuilder.#ctor(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.EntityFrameworkCore.MongoDbContextOptionsBuilder"/> class.
+            </summary>
+            <param name="optionsBuilder">The core <see cref="T:Microsoft.EntityFrameworkCore.DbContextOptionsBuilder"/> class.</param>
+        </member>
+        <member name="P:Microsoft.EntityFrameworkCore.MongoDbContextOptionsBuilder.OptionsBuilder">
+            <summary>
+            Gets the core <see cref="T:Microsoft.EntityFrameworkCore.DbContextOptionsBuilder"/> that supplied to the constructor.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.MongoDbContextOptionsBuilder.UseDatabase(System.String)">
+            <summary>
+            Sets the name of the MongoDB database to use with the <see cref="T:Microsoft.EntityFrameworkCore.DbContext"/> being configured.
+            </summary>
+            <param name="databaseName">The name of the MongoDB database instance to use with the current <see cref="T:Microsoft.EntityFrameworkCore.DbContext"/>.</param>
+            <returns>This <see cref="T:Microsoft.EntityFrameworkCore.Infrastructure.MongoDbOptionsExtension"/>, so that calls can be chained.</returns>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.MongoDbContextOptionsBuilder.CloneExtension">
+            <summary>
+                Clones the <see cref="T:Microsoft.EntityFrameworkCore.Infrastructure.MongoDbOptionsExtension"/> used to configure this builder.
+            </summary>
+            <returns>A cloned instance of this builder's <see cref="T:Microsoft.EntityFrameworkCore.Infrastructure.MongoDbOptionsExtension"/>.</returns>
+        </member>
+        <member name="T:Microsoft.EntityFrameworkCore.MongoDbContextOptionsBuilderExtensions">
+            <summary>
+            MongoDb-specific extension methods for <see cref="T:Microsoft.EntityFrameworkCore.DbContextOptionsBuilder" />.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.MongoDbContextOptionsBuilderExtensions.UseMongoDb(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder,System.String,System.Action{Microsoft.EntityFrameworkCore.MongoDbContextOptionsBuilder})">
+            <summary>
+                Configures the context to connect to a MongoDb instance.
+            </summary>
+            <param name="optionsBuilder">The builder being used to configure the context.</param>
+            <param name="connectionString">The connection string of the MongoDb instance to connect to.</param>
+            <param name="mongoDbOptionsAction">An optional action to allow additional MongoDb-specific configuration.</param>
+            <returns> The options builder so that further configuration can be chained. </returns>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.MongoDbContextOptionsBuilderExtensions.UseMongoDb(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder,MongoDB.Driver.IMongoClient,System.Action{Microsoft.EntityFrameworkCore.MongoDbContextOptionsBuilder})">
+            <summary>
+                Configures the context to connect to a MongoDb instance.
+            </summary>
+            <param name="optionsBuilder">The builder being used to configure the context.</param>
+            <param name="mongoClient">The <see cref="T:MongoDB.Driver.IMongoClient"/> to use when connecting to MongoDb.</param>
+            <param name="mongoDbOptionsAction">An optional action to allow additional MongoDb-specific configuration.</param>
+            <returns> The options builder so that further configuration can be chained. </returns>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.MongoDbContextOptionsBuilderExtensions.UseMongoDb(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder,MongoDB.Driver.MongoClientSettings,System.Action{Microsoft.EntityFrameworkCore.MongoDbContextOptionsBuilder})">
+            <summary>
+                Configures the context to connect to a MongoDb instance.
+            </summary>
+            <param name="optionsBuilder">The builder being used to configure the context.</param>
+            <param name="mongoClientSettings">The <see cref="T:MongoDB.Driver.MongoClientSettings"/> to use when connecting to MongoDb.</param>
+            <param name="mongoDbOptionsAction">An optional action to allow additional MongoDb-specific configuration.</param>
+            <returns> The options builder so that further configuration can be chained. </returns>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.MongoDbContextOptionsBuilderExtensions.UseMongoDb(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder,MongoDB.Driver.MongoUrl,System.Action{Microsoft.EntityFrameworkCore.MongoDbContextOptionsBuilder})">
+            <summary>
+                Configures the context to connect to a MongoDb instance.
+            </summary>
+            <param name="optionsBuilder">The builder being used to configure the context.</param>
+            <param name="mongoUrl">The <see cref="T:MongoDB.Driver.MongoUrl"/> to use to connect to MongoDb.</param>
+            <param name="mongoDbOptionsAction">An optional action to allow additional MongoDb-specific configuration.</param>
+            <returns> The options builder so that further configuration can be chained. </returns>
+        </member>
+        <member name="T:Microsoft.EntityFrameworkCore.Infrastructure.MongoDbOptionsExtension">
+            <summary>
+            This API supports the Entity Framework Core infrastructure and is not intended to be used
+            directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Infrastructure.MongoDbOptionsExtension.#ctor(Microsoft.EntityFrameworkCore.Infrastructure.MongoDbOptionsExtension)">
+            <summary>
+            This API supports the Entity Framework Core infrastructure and is not intended to be used
+            directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:Microsoft.EntityFrameworkCore.Infrastructure.MongoDbOptionsExtension.ConnectionString">
+            <summary>
+            This API supports the Entity Framework Core infrastructure and is not intended to be used
+            directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:Microsoft.EntityFrameworkCore.Infrastructure.MongoDbOptionsExtension.MongoClient">
+            <summary>
+            This API supports the Entity Framework Core infrastructure and is not intended to be used
+            directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:Microsoft.EntityFrameworkCore.Infrastructure.MongoDbOptionsExtension.MongoClientSettings">
+            <summary>
+            This API supports the Entity Framework Core infrastructure and is not intended to be used
+            directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:Microsoft.EntityFrameworkCore.Infrastructure.MongoDbOptionsExtension.MongoUrl">
+            <summary>
+            This API supports the Entity Framework Core infrastructure and is not intended to be used
+            directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="P:Microsoft.EntityFrameworkCore.Infrastructure.MongoDbOptionsExtension.DatabaseName">
+            <summary>
+            Gets or sets the name of the database that the <see cref="T:Microsoft.EntityFrameworkCore.DbContext"/> being configured should use.
+            </summary>
+        </member>
+        <member name="P:Microsoft.EntityFrameworkCore.Infrastructure.MongoDbOptionsExtension.LogFragment">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Infrastructure.MongoDbOptionsExtension.ApplyServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This API supports the Entity Framework Core infrastructure and is not intended to be used
+            directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Infrastructure.MongoDbOptionsExtension.GetServiceProviderHashCode">
+            <summary>
+            This API supports the Entity Framework Core infrastructure and is not intended to be used
+            directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.Infrastructure.MongoDbOptionsExtension.Validate(Microsoft.EntityFrameworkCore.Infrastructure.IDbContextOptions)">
+            <summary>
+            This API supports the Entity Framework Core infrastructure and is not intended to be used
+            directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:Microsoft.EntityFrameworkCore.MongoDbInternalMetadataBuilderExtensions">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.MongoDbInternalMetadataBuilderExtensions.MongoDb(Microsoft.EntityFrameworkCore.Metadata.Internal.InternalEntityTypeBuilder)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.MongoDbInternalMetadataBuilderExtensions.MongoDb(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.MongoDbInternalMetadataBuilderExtensions.MongoDb(Microsoft.EntityFrameworkCore.Metadata.IEntityType)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.MongoDbInternalMetadataBuilderExtensions.MongoDb(Microsoft.EntityFrameworkCore.Metadata.IMutableEntityType)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.MongoDbInternalMetadataBuilderExtensions.MongoDb(Microsoft.EntityFrameworkCore.Metadata.Internal.InternalModelBuilder)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.MongoDbInternalMetadataBuilderExtensions.MongoDb(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.MongoDbInternalMetadataBuilderExtensions.MongoDb(Microsoft.EntityFrameworkCore.Metadata.IModel)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.MongoDbInternalMetadataBuilderExtensions.MongoDb(Microsoft.EntityFrameworkCore.Metadata.IMutableModel)">
+            <summary>
+                This API supports the Entity Framework Core infrastructure and is not intended to be used
+                directly from your code. This API may change or be removed in future releases.
+            </summary>
+        </member>
+        <member name="T:Microsoft.EntityFrameworkCore.MongoDbModelBuilderExtensions">
+            <summary>
+                MongoDb-specific extension methods for <see cref="T:Microsoft.EntityFrameworkCore.ModelBuilder" />.
+            </summary>
+        </member>
+        <member name="M:Microsoft.EntityFrameworkCore.MongoDbModelBuilderExtensions.ForMongoDbFromDatabase(Microsoft.EntityFrameworkCore.ModelBuilder,System.String)">
+            <summary>
+                Configures the database to use when connecting to MongoDb.
+            </summary>
+            <param name="modelBuilder">The <see cref="T:Microsoft.EntityFrameworkCore.ModelBuilder"/> to configure.</param>
+            <param name="database">The name of the database.</param>
+            <returns>This <see cref="T:Microsoft.EntityFrameworkCore.ModelBuilder"/>, such that calls can be chained.</returns>
+        </member>
+        <member name="T:System.Collections.Generic.ListExtensions">
+            <summary>
+            Provides a set of extensions for <see cref="T:System.Collections.Generic.IList`1"/>.
+            </summary>
+        </member>
+        <member name="M:System.Collections.Generic.ListExtensions.InsertBefore``2(System.Collections.Generic.IList{``0},``0)">
+            <summary>
+            Inserts the given <paramref name="item"/> before the first instance of <typeparamref name="TExisting"/>.
+            </summary>
+            <typeparam name="T">The type of items contained in the list.</typeparam>
+            <typeparam name="TExisting">The type of the existing item.</typeparam>
+            <param name="list">An <see cref="T:System.Collections.Generic.IList`1"/> whose values will be replaced.</param>
+            <param name="item">The new value to be inserted in <paramref name="list"/>.</param>
+            <returns>The modified <paramref name="list"/>, such that calls can be chained.</returns>
+        </member>
+        <member name="M:System.Collections.Generic.ListExtensions.Replace``2(System.Collections.Generic.IList{``0},``1)">
+            <summary>
+            Replaces instances of <typeparamref name="TBase"/> in <paramref name="replacement"/> with the
+            given <paramref name="replacement"/>.
+            </summary>
+            <typeparam name="TBase">The base type of instances to be replaced.</typeparam>
+            <typeparam name="TReplacement">The type of the replacement.</typeparam>
+            <param name="list">An <see cref="T:System.Collections.Generic.IList`1"/> whose values will be replaced.</param>
+            <param name="replacement">The new value to be inserted in <paramref name="list"/>.</param>
+            <returns>The modified <paramref name="list"/>, such that calls can be chained.</returns>
+        </member>
+        <member name="M:System.Collections.Generic.ListExtensions.With``1(System.Collections.Generic.IList{``0},``0)">
+            <summary>
+            Adds an <paramref name="item"/> to the given <paramref name="list"/>.
+            </summary>
+            <typeparam name="T">The type of items contained in <paramref name="list"/>.</typeparam>
+            <param name="list">The <see cref="T:System.Collections.Generic.IList`1"/> to which <paramref name="item"/> will be added.</param>
+            <param name="item">The instance of <typeparamref name="T"/> to add to <paramref name="list"/>.</param>
+            <returns>The modified <paramref name="list"/>, such that calls can be chained.</returns>
+        </member>
+    </members>
+</doc>
