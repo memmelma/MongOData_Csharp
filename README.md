@@ -11,6 +11,11 @@ Clone this repo and open it with Visual Studio 15 Enterprise or higher:
 ```
 git clone https://github.com/memmelma/MongOData_Csharp.git
 ```
+
+
+It is also required to install a mongoDb instance and provide the connection information (collection name, database name, connection url) in the controller classes. Information regarding the installation and setup process of the mongoDB can be found here: https://www.mongodb.com/
+
+
 ## ProjectOneEF
 Attempt to implement an OData interface on a MongoDB using the Entity Framework. Due to a lack of support, the solution is currently not working properly and therefore can be ignored!
 
